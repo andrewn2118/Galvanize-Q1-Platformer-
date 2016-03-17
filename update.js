@@ -29,16 +29,16 @@ function update(){
     player.animations.stop();
   }
   // Jumping
-  if(cursors.up.isDown && player.body.touching.down){
+  if(cursors.up.isDown /*&& player.body.touching.down*/){
     player.body.velocity.y = -410 /*-340*/;
   }
 
-  if(enemy.body.x <= 665){
+  if(enemy.body.x <= 685){
     // Move enemy to the right
     enemy.body.velocity.x = 100;
     enemy.animations.play("right");
   }
-  if(enemy.body.x >= 1205){
+  if(enemy.body.x >= 1175){
     // Move enemy to the left
     enemy.body.velocity.x = -100;
     enemy.animations.play("left");
@@ -72,17 +72,17 @@ function rainFish(){
     for(var i=0; i < 200; i++){
       var randomVelocity = Math.floor(Math.random() * 500) + 50;
 
-      var fish = decorations.create(Math.floor(Math.random() * 1001),-50,"fishGreen");
+      var fish = decorations.create(Math.floor(Math.random() * 2001),-20,"fishGreen");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);
 
-      fish = decorations.create(Math.floor(Math.random() * 1201), -50, "fishPink");
+      fish = decorations.create(Math.floor(Math.random() * 2001), -20, "fishPink");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);
 
-      fish = decorations.create(Math.floor(Math.random() * 1201), -50, "fishBlue");
+      fish = decorations.create(Math.floor(Math.random() * 2001), -20, "fishBlue");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);

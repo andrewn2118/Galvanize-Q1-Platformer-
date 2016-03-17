@@ -5,9 +5,9 @@ var background,
     platforms,
     gems,
     yarn,
-    collected,
     decorations,
     danger,
+    collected = 0,
     tileSize = 42;
 
 function create(){
@@ -29,7 +29,7 @@ function create(){
   danger.enableBody = true;
 
   decorations = game.add.group();
-  decorations.enableBody = true;
+  // decorations.enableBody = true;
 
   platforms = game.add.group();
   platforms.enableBody = true;
@@ -37,11 +37,8 @@ function create(){
   // Create level
   generateWorld();
 
-  var candyCane = decorations.create(tileSize * 1.3, tileSize * 2, "candyCane");
-  candyCane.scale.setTo(0.6,0.6);
-
   // Add player and player physics
-  player = game.add.sprite(700, 100/*game.world.height - 370*/, "cat");
+  player = game.add.sprite(100, game.world.height - 370, "cat");
   game.physics.arcade.enable(player);
   player.body.gravity.y = 600;
   player.body.collideWorldBounds = true;
@@ -52,7 +49,7 @@ function create(){
   game.camera.follow(player);
 
   // Add enemy and enemy physics
-  enemy = game.add.sprite(660, 480, "racoon");
+  enemy = game.add.sprite(680/*660*/, 190/*480*/, "racoon");
   game.physics.arcade.enable(enemy);
   enemy.body.gravity.y = 600;
   enemy.body.collideWorldBounds = true;
@@ -66,13 +63,6 @@ function create(){
 
   // Adding controls
   cursors = game.input.keyboard.createCursorKeys();
-
-  // Collectibles
-  var yarn = gems.create(game.world.width - tileSize * 2.3, tileSize * 1.5, "yarn");
-  yarn.scale.setTo(1.3, 1.3);
-  var gem1 = gems.create(950, 100, "gem");
-  // var gem2 = gems.create(0, 0, "gem");
-  // var gem3 = gems.create(0, 0, "gem");
 }
 
 function generateWorld(){
@@ -158,7 +148,17 @@ function generateWorld(){
   // Checkpoint
   addDecoration((tileSize * 34), gHt + 3 - (tileSize * 13), "flagYellow");
 
-  // Level 2
+  // Tunnel
+  addTile("h", tileSize, gHt - (tileSize * 15), 10, "chocoHalfM", true);
+  addTile("h", (tileSize * 3), gHt - (tileSize * 18), 8, "chocoHalfM", true);
+
+  addTile("h", tileSize * 20, gHt - (tileSize * 11), 1, "chocoHalfL", true);
+  addTile("h", tileSize * 21, gHt - (tileSize * 11), 1, "chocoHalfR", true);
+
+  addTile("h", tileSize * 15, gHt - (tileSize * 13), 1, "chocoHalfL", true);
+  addTile("h", tileSize * 16, gHt - (tileSize * 13), 1, "chocoHalfR", true);
+
+  // Right snow ledges
   addTile("h", gWd - (tileSize * 9), gHt - (tileSize * 15), 1, "cakeHalfL", true);
   addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 15), 1, "cakeHalfR", true);
 
@@ -180,16 +180,6 @@ function generateWorld(){
   addTile("h", gWd - (tileSize * 3), tileSize * 3, 1, "snowLedgeR", true);
   addTile("h", gWd - (tileSize * 2), tileSize * 3, 1, "snowMid", true);
 
-  // Tunnel
-  addTile("h", tileSize, gHt - (tileSize * 15), 10, "chocoHalfM", true);
-  addTile("h", (tileSize * 3), gHt - (tileSize * 18), 8, "chocoHalfM", true);
-
-  addTile("h", tileSize * 20, gHt - (tileSize * 11), 1, "chocoHalfL", true);
-  addTile("h", tileSize * 21, gHt - (tileSize * 11), 1, "chocoHalfR", true);
-
-  addTile("h", tileSize * 15, gHt - (tileSize * 13), 1, "chocoHalfL", true);
-  addTile("h", tileSize * 16, gHt - (tileSize * 13), 1, "chocoHalfR", true);
-
   // Left snow ledges
   addTile("h", tileSize, gHt - (tileSize * 21), 1, "cakeHalfM", true);
   addTile("h", tileSize * 2, gHt - (tileSize * 21), 1, "cakeHalfR", true);
@@ -202,6 +192,9 @@ function generateWorld(){
 
   addTile("h", tileSize * 4, gHt - (tileSize * 30), 1, "snowHalfL", true);
   addTile("h", tileSize * 5, gHt - (tileSize * 30), 1, "snowHalfR", true);
+
+  addTile("h", tileSize * 9, tileSize * 5, 1, "snowHalfL", true);
+  addTile("h", tileSize * 10, tileSize * 5, 1, "snowHalfR", true);
 
   addTile("h", tileSize, tileSize * 3, 1, "snowMid", true);
   addTile("h", tileSize * 2, tileSize * 3, 1, "snowLedgeL", true);
@@ -225,6 +218,9 @@ function generateWorld(){
   addTile("h", tileSize * 15, tileSize * 13, 1, "houseBL", true);
   addTile("h", tileSize * 16, tileSize * 13, 14, "houseBM", true);
   addTile("h", tileSize * 30, tileSize * 13, 1, "houseBR", true);
+
+  var candyCane = decorations.create(tileSize * 1.3, tileSize * 2, "candyCane");
+  candyCane.scale.setTo(0.6,0.6);
 
   var door = decorations.create(tileSize * 21.5, tileSize * 10, "doorLock");
   door.scale.setTo(1.8, 1.8);
@@ -266,6 +262,13 @@ function generateWorld(){
 
   cherry = decorations.create(tileSize * 29.5, tileSize * 7, "cherry");
   cherry.scale.setTo(0.5, 0.5);
+
+  // Collectibles
+  var yarn = gems.create(game.world.width - tileSize * 2.3, tileSize * 1.5, "yarn");
+  yarn.scale.setTo(1.3, 1.3);
+  var gem1 = gems.create(950, 100, "gem");
+  var gem2 = gems.create(tileSize * 16, gHt - (tileSize * 10), "gem");
+  var gem3 = gems.create(tileSize * 1.7, gHt - (tileSize * 16.7), "gem");
 }
 
 function addTile(direction, startX, startY, num, floorType, bool){
