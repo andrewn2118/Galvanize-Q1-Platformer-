@@ -11,7 +11,7 @@ var background,
     collected = 0,
     tileSize = 42;
 
-function create(){
+function create(){ 
   // Enable arcade physics
   game.physics.startSystem(Phaser.Physics.ARCADE);
 
