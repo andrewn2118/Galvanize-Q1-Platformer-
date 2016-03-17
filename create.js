@@ -39,7 +39,7 @@ function create(){
   platforms.enableBody = true;
 
   // Create level
-  generateWorld();
+  generateWorld(); 
 
   // Add player and player physics
   player = game.add.sprite(100, game.world.height - 370, "cat");
