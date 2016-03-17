@@ -29,8 +29,8 @@ function update(){
     player.animations.stop();
   }
   // Jumping
-  if(cursors.up.isDown /*&& player.body.touching.down*/){
-    player.body.velocity.y = -410 /*-340*/;
+  if(cursors.up.isDown && player.body.touching.down){
+    player.body.velocity.y = -410;
   }
 
   if(enemy.body.x <= 685){

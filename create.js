@@ -49,7 +49,7 @@ function create(){
   game.camera.follow(player);
 
   // Add enemy and enemy physics
-  enemy = game.add.sprite(680/*660*/, 190/*480*/, "racoon");
+  enemy = game.add.sprite(680/*660*/, 60/*480*/, "racoon");
   game.physics.arcade.enable(enemy);
   enemy.body.gravity.y = 600;
   enemy.body.collideWorldBounds = true;
@@ -149,36 +149,37 @@ function generateWorld(){
   addDecoration((tileSize * 34), gHt + 3 - (tileSize * 13), "flagYellow");
 
   // Tunnel
-  addTile("h", tileSize, gHt - (tileSize * 15), 10, "chocoHalfM", true);
-  addTile("h", (tileSize * 3), gHt - (tileSize * 18), 8, "chocoHalfM", true);
+  // addTile("h", tileSize, gHt - (tileSize * 15), 10, "chocoHalfM", true);
+  // addTile("h", (tileSize * 3), gHt - (tileSize * 18), 8, "chocoHalfM", true);
 
-  addTile("h", tileSize * 20, gHt - (tileSize * 11), 1, "chocoHalfL", true);
-  addTile("h", tileSize * 21, gHt - (tileSize * 11), 1, "chocoHalfR", true);
+  // addTile("h", tileSize * 20, gHt - (tileSize * 11), 1, "chocoHalfL", true);
+  // addTile("h", tileSize * 21, gHt - (tileSize * 11), 1, "chocoHalfR", true);
 
-  addTile("h", tileSize * 15, gHt - (tileSize * 13), 1, "chocoHalfL", true);
-  addTile("h", tileSize * 16, gHt - (tileSize * 13), 1, "chocoHalfR", true);
+  // addTile("h", tileSize * 15, gHt - (tileSize * 13), 1, "chocoHalfL", true);
+  // addTile("h", tileSize * 16, gHt - (tileSize * 13), 1, "chocoHalfR", true);
 
-  // Right snow ledges
-  addTile("h", gWd - (tileSize * 9), gHt - (tileSize * 15), 1, "cakeHalfL", true);
-  addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 15), 1, "cakeHalfR", true);
+  // Level 2
+  var bridge = platforms.create((tileSize * 22), gHt - (tileSize * 10), "bridge");
+  bridge.scale.setTo(0.6, 0.6);
+  bridge.body.setSize(128, 48);
+  bridge.body.immovable = true;
 
-  addTile("h", gWd - (tileSize * 4), gHt - (tileSize * 18), 1, "cakeHalfL", true);
-  addTile("h", gWd - (tileSize * 3), gHt - (tileSize * 18), 1, "cakeHalfR", true);
+  bridge = platforms.create((tileSize * 19), gHt - (tileSize * 13), "bridge");
+  bridge.scale.setTo(0.6, 0.6);
+  bridge.body.setSize(128, 48);
+  bridge.body.immovable = true;
 
-  addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 21), 1, "snowHalfL", true);
-  addTile("h", gWd - (tileSize * 7), gHt - (tileSize * 21), 1, "snowHalfR", true);
+  addTile("h", tileSize, gHt - (tileSize * 15), 15, "sandHalfM", true);
+  
+  addWater("h", tileSize, gHt - (tileSize * 16), 5, "water", true);
+  addWater("h", tileSize, gHt - (tileSize * 17), 5, "waterTop", true);
 
-  addTile("h", gWd - (tileSize * 13), gHt - (tileSize * 24), 1, "snowHalfL", true);
-  addTile("h", gWd - (tileSize * 12), gHt - (tileSize * 24), 1, "snowHalfR", true);
-
-  addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 27), 1, "snowHalfL", true);
-  addTile("h", gWd - (tileSize * 7), gHt - (tileSize * 27), 1, "snowHalfR", true);
-
-  addTile("h", gWd - (tileSize * 3), tileSize * 6, 1, "snowHalfL", true);
-  addTile("h", gWd - (tileSize * 2), tileSize * 6, 1, "snowHalfM", true);
-
-  addTile("h", gWd - (tileSize * 3), tileSize * 3, 1, "snowLedgeR", true);
-  addTile("h", gWd - (tileSize * 2), tileSize * 3, 1, "snowMid", true);
+  addTile("h", tileSize * 6, gHt - (tileSize * 16), 1, "sandLeft", true);
+  addTile("h", tileSize * 7, gHt - (tileSize * 16), 4, "chocoMid", true);
+  addTile("h", tileSize * 6, gHt - (tileSize * 17), 1, "sandTL", true);
+  addTile("h", tileSize * 7, gHt - (tileSize * 17), 4, "sandMid", true);
+  addTile("h", tileSize * 11, gHt - (tileSize * 16), 1, "sandRight", true);
+  addTile("h", tileSize * 11, gHt - (tileSize * 17), 1, "sandTR", true);
 
   // Left snow ledges
   addTile("h", tileSize, gHt - (tileSize * 21), 1, "cakeHalfM", true);
@@ -199,68 +200,113 @@ function generateWorld(){
   addTile("h", tileSize, tileSize * 3, 1, "snowMid", true);
   addTile("h", tileSize * 2, tileSize * 3, 1, "snowLedgeL", true);
 
-  // Howl's Stationary Castle
-  addTile("h", tileSize * 15, tileSize * 5, 1, "chimney", true);
-  addTile("h", tileSize * 30, tileSize * 5, 1, "chimney", true);
-  addTile("h", tileSize * 15, tileSize * 6, 1, "houseTL", true);
-  addTile("h", tileSize * 16, tileSize * 6, 14, "houseTM", true);
-  addTile("h", tileSize * 30, tileSize * 6, 1, "houseTR", true);
+  // Right ledges
+  addTile("h", gWd - (tileSize * 2), gHt - (tileSize * 7), 1, "sandMid", true);
+  addTile("h", gWd - (tileSize * 3), gHt - (tileSize * 7), 1, "sandLedgeAltR", true);
 
+  addTile("h", gWd - (tileSize * 6), gHt - (tileSize * 10), 1, "sandLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 7), gHt - (tileSize * 10), 1, "sandLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 2), gHt - (tileSize * 13), 1, "sandMid", true);
+  addTile("h", gWd - (tileSize * 3), gHt - (tileSize * 13), 1, "sandLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 6), gHt - (tileSize * 16), 1, "sandLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 7), gHt - (tileSize * 16), 1, "sandLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 11), gHt - (tileSize * 19), 1, "sandLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 12), gHt - (tileSize * 19), 1, "sandLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 6), gHt - (tileSize * 22), 1, "snowLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 7), gHt - (tileSize * 22), 1, "snowLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 9), (tileSize * 11), 1, "snowLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 10), (tileSize * 11), 1, "snowLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 9), (tileSize * 11), 1, "snowLedgeAltL", true);
+  addTile("h", gWd - (tileSize * 10), (tileSize * 11), 1, "snowLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 2), (tileSize * 8), 1, "snowMid", true);
+  addTile("h", gWd - (tileSize * 3), (tileSize * 8), 1, "snowLedgeAltR", true);
+
+  addTile("h", gWd - (tileSize * 2), (tileSize * 5), 1, "snowMid", true);
+  addTile("h", gWd - (tileSize * 3), (tileSize * 5), 1, "snowLedgeAltR", true);
+
+  // Right Level 2
+  // addTile("h", gWd - (tileSize * 10), gHt - (tileSize * 15), 9, "sandHalfM", true);
+  // addTile("h", gWd - (tileSize * 11), gHt - (tileSize * 15), 1, "sandHalfL", true);
+
+  // addWater("h", gWd - (tileSize * 6), gHt - (tileSize * 16), 6, "water", true);
+  // addWater("h", gWd - (tileSize * 6), gHt - (tileSize * 17), 6, "waterTop", true);
+
+  // addTile("v", gWd - (tileSize * 7), gHt - (tileSize * 16), 1, "sandRight", true);
+  // addTile("v", gWd - (tileSize * 7), gHt - (tileSize * 17), 1, "sandTR", true);
+  // addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 16), 1, "sand", true);
+  // addTile("h", gWd - (tileSize * 9), gHt - (tileSize * 16), 1, "sandLeft", true);
+  // addTile("h", gWd - (tileSize * 9), gHt - (tileSize * 17), 1, "sandTL", true);
+  // addTile("h", gWd - (tileSize * 8), gHt - (tileSize * 17), 1, "sandMid", true);
+
+  // Howl's Stationary Castle
+  addTile("h", tileSize * 15, tileSize * 4, 1, "chimney", true);
+  addTile("h", tileSize * 30, tileSize * 4, 1, "chimney", true);
+  addTile("h", tileSize * 15, tileSize * 5, 1, "houseTL", true);
+  addTile("h", tileSize * 16, tileSize * 5, 14, "houseTM", true);
+  addTile("h", tileSize * 30, tileSize * 5, 1, "houseTR", true);
+
+  addCastle("h", tileSize * 16, tileSize * 6, 14, "house");
   addCastle("h", tileSize * 16, tileSize * 7, 14, "house");
   addCastle("h", tileSize * 16, tileSize * 8, 14, "house");
   addCastle("h", tileSize * 16, tileSize * 9, 14, "house");
   addCastle("h", tileSize * 16, tileSize * 10, 14, "house");
   addCastle("h", tileSize * 16, tileSize * 11, 14, "house");
-  addCastle("h", tileSize * 16, tileSize * 12, 14, "house");
-  addCastle("v", tileSize * 15, tileSize * 7, 6, "houseLeft");
-  addCastle("v", tileSize * 30, tileSize * 7, 6, "houseRight");
+  addCastle("v", tileSize * 15, tileSize * 6, 6, "houseLeft");
+  addCastle("v", tileSize * 30, tileSize * 6, 6, "houseRight");
 
-  addTile("h", tileSize * 15, tileSize * 13, 1, "houseBL", true);
-  addTile("h", tileSize * 16, tileSize * 13, 14, "houseBM", true);
-  addTile("h", tileSize * 30, tileSize * 13, 1, "houseBR", true);
+  addTile("h", tileSize * 13, tileSize * 12, 1, "tundraLedgeR", true);
+  addTile("h", tileSize * 14, tileSize * 12, 18, "tundraMid", true);
+  addTile("h", tileSize * 32, tileSize * 12, 1, "tundraLedgeL", true);
 
   var candyCane = decorations.create(tileSize * 1.3, tileSize * 2, "candyCane");
   candyCane.scale.setTo(0.6,0.6);
 
-  var door = decorations.create(tileSize * 21.5, tileSize * 10, "doorLock");
+  var door = decorations.create(tileSize * 21.5, tileSize * 9, "doorLock");
   door.scale.setTo(1.8, 1.8);
-  var doorTop = decorations.create(tileSize * 21.5, tileSize * 7, "doorTop");
+  var doorTop = decorations.create(tileSize * 21.5, tileSize * 6, "doorTop");
   doorTop.scale.setTo(1.8, 1.8);
 
-  var stick = decorations.create(tileSize * 16, tileSize * 11.5, "lolliStick");
-  var lolli = platforms.create(tileSize * 16, tileSize * 9.9, "lolliGreen");
+  var stick = decorations.create(tileSize * 16, tileSize * 10.5, "lolliStick");
+  var lolli = platforms.create(tileSize * 16, tileSize * 8.9, "lolliGreen");
 
-  stick = decorations.create(tileSize * 19, tileSize * 11.5, "lolliStick");
-  lolli = platforms.create(tileSize * 19, tileSize * 9.9, "lolliGreen");
+  stick = decorations.create(tileSize * 19, tileSize * 10.5, "lolliStick");
+  lolli = platforms.create(tileSize * 19, tileSize * 8.9, "lolliGreen");
 
-  stick = decorations.create(tileSize * 25.4, tileSize * 11.5, "lolliStick");
-  lolli = platforms.create(tileSize * 25.4, tileSize * 9.9, "lolliGreen");
+  stick = decorations.create(tileSize * 25.4, tileSize * 10.5, "lolliStick");
+  lolli = platforms.create(tileSize * 25.4, tileSize * 8.9, "lolliGreen");
 
-  stick = decorations.create(tileSize * 28.4, tileSize * 11.5, "lolliStick");
-  lolli = platforms.create(tileSize * 28.4, tileSize * 9.9, "lolliGreen");
+  stick = decorations.create(tileSize * 28.4, tileSize * 10.5, "lolliStick");
+  lolli = platforms.create(tileSize * 28.4, tileSize * 8.9, "lolliGreen");
 
-  var cherry = decorations.create(tileSize * 15.5, tileSize * 7, "cherry");
+  var cherry = decorations.create(tileSize * 15.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 17.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 17.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 19.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 19.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 21.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 21.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 23.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 23.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 25.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 25.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 27.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 27.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
-  cherry = decorations.create(tileSize * 29.5, tileSize * 7, "cherry");
+  cherry = decorations.create(tileSize * 29.5, tileSize * 6, "cherry");
   cherry.scale.setTo(0.5, 0.5);
 
   // Collectibles

@@ -42,6 +42,10 @@ function preload(){
   game.load.image("grassRight", "./assets/tile/grass/slice24_24.png");
   game.load.image("grassTR", "./assets/tile/grass/slice20_20.png");
   game.load.image("grassTL", "./assets/tile/grass/slice19_19.png");
+  game.load.image("grassLedgeR", "./assets/tile/grass/slice12_12.png");
+  game.load.image("grassLedgeL", "./assets/tile/grass/slice13_13.png");
+  game.load.image("grassLedgeAltR", "./assets/tile/grass/slice14_14.png");
+  game.load.image("grassLedgeAltL", "./assets/tile/grass/slice15_15.png");
 
   // Planet tiles
   game.load.image("planetMid", "./assets/tile/planet/slice03_03.png");
@@ -49,9 +53,9 @@ function preload(){
   game.load.image("planetRight", "./assets/tile/planet/slice24_24.png");
 
   // Dirt tiles
-  game.load.image("dirtHalfMid", "./assets/tile/dirt/dirtHalfMid.png");
-  game.load.image("dirtHalfRight", "./assets/tile/dirt/dirtHalfRight.png");
-  game.load.image("dirtHalfLeft", "./assets/tile/dirt/dirtHalfLeft.png");
+  game.load.image("dirtHalfM", "./assets/tile/dirt/dirtHalfMid.png");
+  game.load.image("dirtHalfR", "./assets/tile/dirt/dirtHalfRight.png");
+  game.load.image("dirtHalfL", "./assets/tile/dirt/dirtHalfLeft.png");
 
   // Cake tiles
   game.load.image("cake", "./assets/tile/cake/slice31_31.png");
@@ -125,6 +129,10 @@ function preload(){
   game.load.image("sandLedgeAltR", "./assets/tile/sand/slice14_14.png");
   game.load.image("sandLedgeAltL", "./assets/tile/sand/slice15_15.png");
 
+  game.load.image("sandHalfM", "./assets/tile/sand/sandHalfMid.png");
+  game.load.image("sandHalfL", "./assets/tile/sand/sandHalfLeft.png");
+  game.load.image("sandHalfR", "./assets/tile/sand/sandHalfRight.png");
+
   // Tundra tiles
   game.load.image("tundra", "./assets/tile/tundra/slice27_27.png");
   game.load.image("tundraMidR", "./assets/tile/tundra/slice01_01.png");
@@ -155,6 +163,8 @@ function preload(){
 
   game.load.image("snowLedgeR", "./assets/tile/snow/slice12_12.png");
   game.load.image("snowLedgeL", "./assets/tile/snow/slice13_13.png");
+  game.load.image("snowLedgeAltR", "./assets/tile/snow/slice14_14.png");
+  game.load.image("snowLedgeAltL", "./assets/tile/snow/slice15_15.png");
 
   // Candy tiles
   game.load.image("candyCane", "./assets/tile/candy/Tiles/canePinkSmall.png");
