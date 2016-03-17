@@ -6,6 +6,7 @@ var background,
     gems,
     yarn,
     decorations,
+    celebrate,
     danger,
     collected = 0,
     tileSize = 42;
@@ -29,7 +30,10 @@ function create(){
   danger.enableBody = true;
 
   decorations = game.add.group();
-  // decorations.enableBody = true;
+  decorations.enableBody = true;
+
+  celebrate = game.add.group();
+  celebrate.enableBody = true;
 
   platforms = game.add.group();
   platforms.enableBody = true;
@@ -169,7 +173,8 @@ function generateWorld(){
   bridge.body.setSize(128, 48);
   bridge.body.immovable = true;
 
-  addTile("h", tileSize, gHt - (tileSize * 15), 15, "sandHalfM", true);
+  addTile("h", tileSize, gHt - (tileSize * 15), 14, "sandHalfM", true);
+  addTile("h", tileSize * 15, gHt - (tileSize * 15), 1, "sandHalfR", true);
   
   addWater("h", tileSize, gHt - (tileSize * 16), 5, "water", true);
   addWater("h", tileSize, gHt - (tileSize * 17), 5, "waterTop", true);
@@ -182,23 +187,23 @@ function generateWorld(){
   addTile("h", tileSize * 11, gHt - (tileSize * 17), 1, "sandTR", true);
 
   // Left snow ledges
-  addTile("h", tileSize, gHt - (tileSize * 21), 1, "cakeHalfM", true);
-  addTile("h", tileSize * 2, gHt - (tileSize * 21), 1, "cakeHalfR", true);
+  addTile("h", tileSize, gHt - (tileSize * 20), 1, "cakeHalfM", true);
+  addTile("h", tileSize * 2, gHt - (tileSize * 20), 1, "cakeHalfR", true);
 
-  addTile("h", tileSize * 4, gHt - (tileSize * 24), 1, "cakeHalfL", true);
-  addTile("h", tileSize * 5, gHt - (tileSize * 24), 1, "cakeHalfR", true);
+  addTile("h", tileSize * 5, gHt - (tileSize * 23), 1, "cakeHalfL", true);
+  addTile("h", tileSize * 6, gHt - (tileSize * 23), 1, "cakeHalfR", true);
 
-  addTile("h", tileSize, gHt - (tileSize * 27), 1, "snowHalfM", true);
-  addTile("h", tileSize * 2, gHt - (tileSize * 27), 1, "snowHalfR", true);
+  addTile("h", tileSize, gHt - (tileSize * 26), 1, "snowHalfM", true);
+  addTile("h", tileSize * 2, gHt - (tileSize * 26), 1, "snowHalfR", true);
 
-  addTile("h", tileSize * 4, gHt - (tileSize * 30), 1, "snowHalfL", true);
-  addTile("h", tileSize * 5, gHt - (tileSize * 30), 1, "snowHalfR", true);
+  addTile("h", tileSize * 5, gHt - (tileSize * 29), 1, "snowHalfL", true);
+  addTile("h", tileSize * 6, gHt - (tileSize * 29), 1, "snowHalfR", true);
 
   addTile("h", tileSize * 9, tileSize * 5, 1, "snowHalfL", true);
   addTile("h", tileSize * 10, tileSize * 5, 1, "snowHalfR", true);
 
-  addTile("h", tileSize, tileSize * 3, 1, "snowMid", true);
-  addTile("h", tileSize * 2, tileSize * 3, 1, "snowLedgeL", true);
+  addTile("h", tileSize, tileSize * 4, 1, "snowMid", true);
+  addTile("h", tileSize * 2, tileSize * 4, 1, "snowLedgeL", true);
 
   // Right ledges
   addTile("h", gWd - (tileSize * 2), gHt - (tileSize * 7), 1, "sandMid", true);
@@ -265,7 +270,7 @@ function generateWorld(){
   addTile("h", tileSize * 14, tileSize * 12, 18, "tundraMid", true);
   addTile("h", tileSize * 32, tileSize * 12, 1, "tundraLedgeL", true);
 
-  var candyCane = decorations.create(tileSize * 1.3, tileSize * 2, "candyCane");
+  var candyCane = decorations.create(tileSize * 1.3, tileSize * 3, "candyCane");
   candyCane.scale.setTo(0.6,0.6);
 
   var door = decorations.create(tileSize * 21.5, tileSize * 9, "doorLock");
@@ -314,7 +319,7 @@ function generateWorld(){
   yarn.scale.setTo(1.3, 1.3);
   var gem1 = gems.create(950, 100, "gem");
   var gem2 = gems.create(tileSize * 16, gHt - (tileSize * 10), "gem");
-  var gem3 = gems.create(tileSize * 1.7, gHt - (tileSize * 16.7), "gem");
+  var gem3 = gems.create(tileSize * 4, gHt - (tileSize * 18.7), "gem");
 }
 
 function addTile(direction, startX, startY, num, floorType, bool){

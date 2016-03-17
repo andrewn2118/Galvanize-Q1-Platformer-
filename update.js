@@ -46,6 +46,7 @@ function update(){
 
   // Rain fishes
   rainFish();
+  game.world.bringToTop(celebrate);
 
   // Debug
   // game.debug.body(player);
@@ -72,17 +73,17 @@ function rainFish(){
     for(var i=0; i < 200; i++){
       var randomVelocity = Math.floor(Math.random() * 500) + 50;
 
-      var fish = decorations.create(Math.floor(Math.random() * 2001),-20,"fishGreen");
+      var fish = celebrate.create(Math.floor(Math.random() * 2001),-20,"fishGreen");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);
 
-      fish = decorations.create(Math.floor(Math.random() * 2001), -20, "fishPink");
+      fish = celebrate.create(Math.floor(Math.random() * 2001), -20, "fishPink");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);
 
-      fish = decorations.create(Math.floor(Math.random() * 2001), -20, "fishBlue");
+      fish = celebrate.create(Math.floor(Math.random() * 2001), -20, "fishBlue");
       game.physics.arcade.enable(fish);
       fish.body.velocity.y = randomVelocity;
       fish.scale.setTo(0.4, 0.4);
