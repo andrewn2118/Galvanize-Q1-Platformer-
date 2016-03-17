@@ -10,6 +10,9 @@ function preload(){
   game.load.image("gem", "./assets/gem.png");
   game.load.image("yarn", "./assets/yarn.png");
 
+  game.load.image("gemCopy", "./assets/gemCopy.png");
+  game.load.image("yarnCopy", "./assets/yarnCopy.png");
+
   // Fish
   game.load.image("fishBlue", "./assets/fishBlue.png");
   game.load.image("fishGreen", "./assets/fishGreen.png");
@@ -26,17 +29,29 @@ function preload(){
   game.load.image("signLeft", "./assets/tile/decoration/signLeft.png");
   game.load.image("signExit", "./assets/tile/decoration/signExit.png");
   game.load.image("spikes", "./assets/tile/decoration/spikes.png");
+  game.load.image("rockMoss", "./assets/tile/buildings/Tiles/rockMoss.png");
 
   // Water
-  game.load.image("water", "./assets/tile/decoration/waterTop_high.png");
+  game.load.image("water", "./assets/tile/decoration/water.png");
+  game.load.image("waterTop", "./assets/tile/decoration/waterTop_high.png");
 
   // Grass tiles
+  game.load.image("grass", "./assets/tile/grass/slice27_27.png");
   game.load.image("grassMid", "./assets/tile/grass/slice03_03.png");
+  game.load.image("grassLeft", "./assets/tile/grass/slice23_23.png");
+  game.load.image("grassRight", "./assets/tile/grass/slice24_24.png");
+  game.load.image("grassTR", "./assets/tile/grass/slice20_20.png");
+  game.load.image("grassTL", "./assets/tile/grass/slice19_19.png");
 
   // Planet tiles
   game.load.image("planetMid", "./assets/tile/planet/slice03_03.png");
   game.load.image("planetLeft", "./assets/tile/planet/slice23_23.png");
   game.load.image("planetRight", "./assets/tile/planet/slice24_24.png");
+
+  // Dirt tiles
+  game.load.image("dirtHalfMid", "./assets/tile/dirt/dirtHalfMid.png");
+  game.load.image("dirtHalfRight", "./assets/tile/dirt/dirtHalfRight.png");
+  game.load.image("dirtHalfLeft", "./assets/tile/dirt/dirtHalfLeft.png");
 
   // Cake tiles
   game.load.image("cake", "./assets/tile/cake/slice31_31.png");
@@ -130,7 +145,19 @@ function preload(){
   game.load.image("tundraLedgeAltR", "./assets/tile/tundra/slice14_14.png");
   game.load.image("tundraLedgeAltL", "./assets/tile/tundra/slice15_15.png");
 
+  // Snow tiles
+  game.load.image("snowMid", "./assets/tile/snow/slice03_03.png");
+  game.load.image("snowMidU", "./assets/tile/snow/slice32_32.png");
+  game.load.image("snowHalf", "./assets/tile/snow/snowHalf.png");
+  game.load.image("snowHalfM", "./assets/tile/snow/snowHalfMid.png");
+  game.load.image("snowHalfL", "./assets/tile/snow/snowHalfLeft.png");
+  game.load.image("snowHalfR", "./assets/tile/snow/snowHalfRight.png");
+
+  game.load.image("snowLedgeR", "./assets/tile/snow/slice12_12.png");
+  game.load.image("snowLedgeL", "./assets/tile/snow/slice13_13.png");
+
   // Candy tiles
+  game.load.image("candyCane", "./assets/tile/candy/Tiles/canePinkSmall.png");
   game.load.image("cookieBrown", "./assets/tile/candy/Tiles/cookieBrown.png");
   game.load.image("cookieChoco", "./assets/tile/candy/Tiles/cookieChoco.png");
   game.load.image("cookiePink", "./assets/tile/candy/Tiles/cookiePink.png");
@@ -145,6 +172,26 @@ function preload(){
   game.load.image("wafflePink", "./assets/tile/candy/Tiles/wafflePink.png");
   game.load.image("waffleWhite", "./assets/tile/candy/Tiles/waffleWhite.png");
 
-  // Snow tiles
-  game.load.image("snowMidU", "./assets/tile/snow/slice32_32.png");
+  game.load.image("lolliStick", "./assets/tile/candy/Tiles/lollipopBaseBrown.png");
+  game.load.image("lolliGreen", "./assets/tile/candy/Tiles/lollipopGreen.png");
+  game.load.image("cherry", "./assets/tile/candy/Tiles/cherry.png");
+
+  // Castle tiles
+  game.load.image("anemometer", "./assets/tile/buildings//Tiles/anemometer.png");
+  game.load.image("clock", "./assets/tile/buildings//Tiles/clock.png");
+  game.load.image("chimney", "./assets/tile/buildings//Tiles/chimney.png");
+  game.load.image("house", "./assets/tile/buildings//Tiles/houseBeige.png");
+  game.load.image("houseAlt", "./assets/tile/buildings//Tiles/houseBeigeAlt.png");
+  game.load.image("houseAlt2", "./assets/tile/buildings//Tiles/houseBeigeAlt2.png");
+  game.load.image("houseBL", "./assets/tile/buildings//Tiles/houseGrayBottomLeft.png");
+  game.load.image("houseBM", "./assets/tile/buildings//Tiles/houseGrayBottomMid.png");
+  game.load.image("houseBR", "./assets/tile/buildings//Tiles/houseGrayBottomRight.png");
+  game.load.image("houseLeft", "./assets/tile/buildings//Tiles/houseBeigeMidLeft.png");
+  game.load.image("houseRight", "./assets/tile/buildings//Tiles/houseBeigeMidRight.png");
+  game.load.image("houseTL", "./assets/tile/buildings//Tiles/houseBeigeTopLeft.png");
+  game.load.image("houseTM", "./assets/tile/buildings//Tiles/houseBeigeTopMid.png");
+  game.load.image("houseTR", "./assets/tile/buildings//Tiles/houseBeigeTopRight.png");
+  game.load.image("doorLock", "./assets/tile/buildings//Tiles/doorLock.png");
+  game.load.image("doorTop", "./assets/tile/buildings//Tiles/doorTop.png");
+  game.load.image("catleTop", "./assets/tile/castle/slice36_36.png");
 }
